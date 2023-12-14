@@ -29,7 +29,7 @@ export default{
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    
+
     },
     extra: {
       apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -40,7 +40,7 @@ export default{
       appId: process.env.REACT_APP_FIREBASE_APP_ID,
       measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
       googleMapsApiKey: process.env.GOOGLE_MAPS_APIKEY // Add this line
-    }
-    
+    },
+    "plugins": ["@react-native-google-signin/google-signin"]
   }
 }

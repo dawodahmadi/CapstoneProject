@@ -11,27 +11,19 @@ import { selectDestination, selectOrigin } from '../slices/navSlice';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import NavFavorites from '../components/NavFavorites';
 
-
-
-
-
-
-
-
-
 const HomeScreen = () => {
   const dispatch = useDispatch();
   return (
-    <SafeAreaView style={tw`bg-white h-full`}> 
+    <SafeAreaView style={tw`bg-white h-full`}>
       <View style={tw`p-5`}>
-        <Image 
+        <Image
             style={{
                 width: 100,
                 height: 100,
                 resizeMode: 'contain',
             }}
-        
-            source={{ 
+
+            source={{
                 uri: 'https://links.papareact.com/gzs',
              }} />
             <View style={{height:200, zIndex:1}}>
@@ -46,7 +38,7 @@ const HomeScreen = () => {
                     },
                 }}
                 onPress={(data, details = null) => {
-                  console.log('consoling data',details)  
+                  console.log('consoling data',details)
                   dispatch(setOrigin({
                         location: details.geometry.location,
                         description: data.description,
@@ -69,12 +61,12 @@ const HomeScreen = () => {
             />
 
             </View>
-            
+
             <NavOptions />
             <NavFavorites />
 
-            
-            
+
+
       </View>
     </SafeAreaView>
   );

@@ -8,39 +8,19 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import StackNavigator from "./src/navigation/StackNavigator";
+import { Provider as PaperProvider } from 'react-native-paper';
+import Toast from "react-native-toast-message";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
 
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        <SafeAreaProvider>
-        <KeyboardAvoidingView
-          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-          style={{ flex: 1 }}
-          keyboardVerticalOffset={Platform.OS === 'ios' ? -64 : 0}
-        >
-          <GestureHandlerRootView style={{ flex: 1 }}>
-            <Stack.Navigator>
-            <Stack.Screen
-                name="HomeScreen"
-                component={HomeScreen}
-                options={{ headerShown: false }}
-              />
-            <Stack.Screen
-                name="MapScreen"
-                component={MapScreen}
-                options={{ headerShown: false }}
-              />
-              
-              
-            </Stack.Navigator>
-          </GestureHandlerRootView>
-        </KeyboardAvoidingView>
-        </SafeAreaProvider>
-        
-      </NavigationContainer>
+      <PaperProvider>
+        <StackNavigator />
+        <Toast />
+      </PaperProvider>
     </Provider>
   );
 }
