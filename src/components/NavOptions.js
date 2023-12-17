@@ -12,12 +12,13 @@ const data = [
     image: 'https://links.papareact.com/3pn',
     screen: 'MapScreen',
   },
-  // {
-  //   id: '456',
-  //   title: 'Order food',
-  //   image: 'https://links.papareact.com/28w',
-  //   screen: 'PaymentScreen',
-  // },
+  {
+    id: '456',
+    title: 'Order food',
+    image: 'https://links.papareact.com/28w',
+    screen: 'PaymentScreen',
+  },
+  
 ]
 
 const NavOptions = () => {
