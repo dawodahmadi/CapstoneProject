@@ -22,6 +22,7 @@ export default{
       "bundleIdentifier": "com.dawodahmadi.capstoneproject",
     },
     "android": {
+      "package": "com.dawodahmadi.capstoneproject",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
