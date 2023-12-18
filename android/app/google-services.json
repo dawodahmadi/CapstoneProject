@@ -8,12 +8,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:328238107734:android:d60f1f225010aaa904bff7",
+        "mobilesdk_app_id": "1:328238107734:android:20af5144feed1da904bff7",
         "android_client_info": {
           "package_name": "com.dawodahmadi.capstoneproject"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "328238107734-mu0mnft66ops8gfcvn1g7fqeprkq7u07.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dawodahmadi.capstoneproject",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
         {
           "client_id": "328238107734-6flcb6f3ffh3t6vsnoj67sqnshdl73rf.apps.googleusercontent.com",
           "client_type": 3
@@ -35,7 +43,7 @@
               "client_id": "328238107734-3nmb4v5l6uh5ltfr7uu04uouvgr3ut2i.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.dawodahmadi.capstoneproject"
+                "bundle_id": "com.dawod.capstone"
               }
             }
           ]

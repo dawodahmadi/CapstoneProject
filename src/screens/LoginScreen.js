@@ -47,6 +47,7 @@ const LoginScreen = () => {
   const onPressGoogleSignIn=async ()=>{
     try {
       await GoogleSignin.hasPlayServices();
+      debugger
       const userInfo = await GoogleSignin.signIn();
       console.log('userInfo',userInfo)
       const jsonValue = JSON.stringify(userInfo?.user);
@@ -56,12 +57,17 @@ const LoginScreen = () => {
     } catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
+        console.log(error.code)
       } else if (error.code === statusCodes.IN_PROGRESS) {
         // operation (e.g. sign in) is in progress already
+        console.log(error.code)
       } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
         // play services not available or outdated
+        console.log(error.code)
       } else {
         // some other error happened
+        console.log(error)
+        debugger
       }
     }
   }
