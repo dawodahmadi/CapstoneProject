@@ -6,12 +6,13 @@ import { Icon } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 
+
 import { selectTravelTimeInformation } from '../slices/navSlice';
 
 
 const data = [{
     id: 'uber-x-123',
-    title: 'UberX',
+    title: 'Taxi Regular',
     multiplier: 1,
     image: 'https://links.papareact.com/3pn',
 
@@ -19,7 +20,7 @@ const data = [{
 
     {
         id: 'uber-x-456',
-        title: 'Uber XL',
+        title: 'Taxi Large',
         multiplier: 1.2,
         image: 'https://links.papareact.com/5w8',
     
@@ -27,7 +28,7 @@ const data = [{
     
         {
         id: 'uber-x-789',
-        title: 'Uber LUX',
+        title: 'TAXI LUX',
         multiplier: 1.75,
         image: 'https://links.papareact.com/7pf',
     
@@ -42,6 +43,17 @@ const RideOptionsCard = () => {
   
   const travelTimeInformation = useSelector(selectTravelTimeInformation)
   console.log("travelTimeInformation", travelTimeInformation);
+  const onSelectRide = (item) => { 
+    console.log("item", item);
+    setSelected(item)
+    const body = {
+        travelTimeInformation: travelTimeInformation,
+        selected: item,
+    }
+    navigation.navigate('PaymentScreen', {
+      ride: body,
+    })
+  }
   
     return (
     <SafeAreaView style={tw`bg-white flex-grow`}>
@@ -63,7 +75,7 @@ const RideOptionsCard = () => {
         keyExtractor={(item) => item.id} 
         renderItem={({ item: { id, title, multiplier, image }, item }) => (
             <TouchableOpacity 
-                onPress={() => setSelected(item)}
+                onPress={() => onSelectRide(item)}
                 style={tw`flex-row justify-between items-center px-10 ${id === selected?.id && 'bg-gray-200'}`}>
                 <Image style={{
                     width: 100,
@@ -78,7 +90,7 @@ const RideOptionsCard = () => {
                 <Text style={tw`text-xl`}>
                     { new Intl.NumberFormat('en-gb', {
                     style: "currency",
-                    currency: "GBP"
+                    currency: "CAD"
               }).format(
                 (travelTimeInformation?.duration?.value * SURGE_CHARGE_RATE * multiplier) / 100
               ) }

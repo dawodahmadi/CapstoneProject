@@ -12,8 +12,12 @@ import {TextInput} from "react-native-paper";
 import {Header} from "../components";
 import {Formik} from "formik";
 
-const PaymentScreen = ({navigation}) => {
-
+const PaymentScreen = ({route,navigation}) => {
+    const item = route?.params?.ride;
+    const SURGE_CHARGE_RATE = 1.5;
+    console.log("route", item)
+    const amountFormula = (item?.travelTimeInformation?.duration?.value * SURGE_CHARGE_RATE * item?.selected?.multiplier) / 100;
+    console.log('amount formula', amountFormula)
     const [cardInfo, setCardInfo] = useState(null)
     const [isLoading, setLoading] = useState(false)
     const [outLineColor, setOutLineColor] = useState({
@@ -24,8 +28,10 @@ const PaymentScreen = ({navigation}) => {
     const [signUpParams, setSignUpParams] = useState({
        name:'',
         email: '',
-        amount:'',
+        amount: amountFormula,
+
     })
+    console.log("signUpParams",signUpParams?.amount)
     const [signUpParamsValidate, setSignUpParamsValidate] = useState({
        name:false,
         email: '',
@@ -272,7 +278,7 @@ const PaymentScreen = ({navigation}) => {
                 <View style={styles.inputSec}>
                     <Formik
                         validationSchema={amountValidationSchema}
-                        initialValues={{ Amount: signUpParams?.amount }}
+                        initialValues={{ Amount: amountFormula }}
                         onSubmit={values => onPressName(values)}
                     >
                         {({ handleChange, handleSubmit, values, errors }) => (
@@ -283,7 +289,7 @@ const PaymentScreen = ({navigation}) => {
                                     autoCapitalize="none"
                                     placeholder="Amount*"
                                     textColor="#000000"
-                                    value={values.amount}
+                                    value={signUpParams?.amount}
                                     maxLength={14}
                                     keyboardType={'phone-pad'}
                                     onChangeText={text => {

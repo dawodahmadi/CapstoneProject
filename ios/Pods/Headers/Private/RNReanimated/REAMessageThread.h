@@ -1,1 +1,1 @@
-../../../../../node_modules/react-native-reanimated/ios/native/REAMessageThread.h
+../../../../../node_modules/react-native-reanimated/apple/native/REAMessageThread.h

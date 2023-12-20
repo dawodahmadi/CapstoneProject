@@ -148,7 +148,7 @@ const UserDetailScreen = ({ navigation }) => {
                     // const data = await signUpApi(body, navigation)
                     const jsonValue = JSON.stringify(body);
                     await AsyncStorage.setItem('userDetail', jsonValue);
-                    navigation.navigate('HomeScreen')
+                    navigation.navigate('NavigationDrawer')
                 }
                 catch (error) {
 

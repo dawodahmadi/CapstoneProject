@@ -1,1 +1,1 @@
-../../../../../node_modules/react-native-reanimated/ios/LayoutReanimation/REASharedTransitionManager.h
+../../../../../node_modules/react-native-reanimated/apple/LayoutReanimation/REASharedTransitionManager.h

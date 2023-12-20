@@ -36,7 +36,7 @@ const LoginScreen = () => {
         const jsonValue = await AsyncStorage.getItem('loginData');
         const data=JSON.parse(jsonValue)
         if(data?.email){
-          navigation.navigate('HomeScreen')
+          navigation.navigate('NavigationDrawer')
         }
       } catch (e) {
         // error reading value
