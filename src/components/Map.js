@@ -13,8 +13,9 @@ import { setTravelTimeInformation } from '../slices/navSlice'
 
 
 const Map = () => {
-  const origin = useSelector(selectOrigin)
-  const destination = useSelector(setDestination)
+  const origin = useSelector(state=>state?.nav?.origin)
+  const destination=useSelector(state=>state?.nav?.destination)
+  //const destination = useSelector(setDestination)
   const mapRef = useRef(null)
   const dispatch = useDispatch()
   //const hasValidOriginAndDestination = origin && destination && origin.location && destination.location;
@@ -36,10 +37,13 @@ const Map = () => {
     //if (!hasValidOriginAndDestination) return
 
     const getTravelTime = async () => {
+      console.log("origin.description", origin.description)
+      console.log("destination.description", destination.description)
       fetch(`https://maps.googleapis.com/maps/api/distancematrix/json?
       units=imperial&origins=${origin.description}&destinations=${destination.description}&key=${GOOGLE_MAPS_APIKEY}`)
       .then((res) => res.json())
       .then(data => {
+        console.log("data", data)
         dispatch(setTravelTimeInformation(data.rows[0].elements[0]))
       })
     }
@@ -47,7 +51,8 @@ const Map = () => {
     getTravelTime()
   }, [origin, destination, GOOGLE_MAPS_APIKEY])
 
-console.log('this is a string location',origin)
+console.log('this is a origin location',origin)
+console.log("destination console info", destination )
   return (
     <MapView
       ref={mapRef}
@@ -81,7 +86,7 @@ console.log('this is a string location',origin)
           identifier="origin"
         />
       )}
-
+      
       {destination?.location && (
         <Marker 
           coordinate={{

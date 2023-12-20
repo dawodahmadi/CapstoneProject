@@ -1,4 +1,4 @@
-import { SafeAreaView, View, Image} from 'react-native';
+import { SafeAreaView, View, Image, Text} from 'react-native';
 import React from 'react';
 import tw from 'tailwind-react-native-classnames';
 import NavOptions from '../components/NavOptions';
@@ -10,13 +10,14 @@ import { useNavigation } from '@react-navigation/core';
 import { selectDestination, selectOrigin } from '../slices/navSlice';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import NavFavorites from '../components/NavFavorites';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
   return (
     <SafeAreaView style={tw`bg-white h-full`}>
       <View style={tw`p-5`}>
-        <Image
+        {/* <Image
             style={{
                 width: 100,
                 height: 100,
@@ -25,7 +26,8 @@ const HomeScreen = () => {
 
             source={{
                 uri: 'https://links.papareact.com/gzs',
-             }} />
+             }} /> */}
+             <View><Text style={{fontSize: RFValue(20), fontWeight:"bold"}}>MontRide Taxi</Text></View>
             <View style={{height:200, zIndex:1}}>
             <GooglePlacesAutocomplete
                 placeholder="Where From?"

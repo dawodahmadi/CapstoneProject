@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, TouchableOpacity} from 'react-native'
-import React from 'react'
+import React, {useState} from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import tw from 'tailwind-react-native-classnames';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
@@ -20,8 +20,10 @@ const NavigateCard = () => {
     const origin = useSelector(selectOrigin);
     const destination = useSelector(selectDestination);
     const navigation = useNavigation();
+    const [hideNavOptions, setHideNavOptions] = useState(false);
+    console.log("state console hidenavoptions", hideNavOptions )
   return (
-    <SafeAreaView style={tw`bg-white flex-1`}>
+    <View style={tw`bg-white`}>
         
         <Text style={tw`text-center py-5 text-xl`}>Good Morning, </Text>
         <View style={tw`border-t border-gray-200 flex-shrink`}>
@@ -29,7 +31,7 @@ const NavigateCard = () => {
                 <GooglePlacesAutocomplete 
                 placeholder="Where to?"
                 nearbyPlacesAPI="GooglePlacesSearch"
-                debounce={400}
+                debounce={200}
                 styles={toInputBoxStyles}
                 enablePoweredByContainer={false}
                 fetchDetails={true}
@@ -37,9 +39,13 @@ const NavigateCard = () => {
                     key: 'AIzaSyCjlhkIPVQfZS4ei6mnHtsG4RCKoomxl0c',
                     language: 'en',
                 }}
+                onChangeText={(text) => setHideNavOptions(true)}
                 returnKeyType={'search'}
                 minLength={2}
-                onPress={(data, details = null) => {
+                onPress={(data, details) => {
+                    console.log("set destination data", data)
+                    console.log("set destination details", details)
+                    
                     dispatch(setDestination({
                         location: details.geometry.location,
                         description: data.description,
@@ -50,7 +56,8 @@ const NavigateCard = () => {
                 />
             </View>
         </View>
-        <NavFavorites />
+        {!hideNavOptions ? <NavFavorites /> :  null} 
+        {/* <NavFavorites /> */}
         <View style={tw`flex-row bg-white justify-evenly py-2 mt-auto border-t border-gray-100`}>
             <TouchableOpacity 
             onPress={() => navigation.navigate('RideOptionsCard')}
@@ -64,7 +71,7 @@ const NavigateCard = () => {
             </TouchableOpacity>
             
         </View>
-    </SafeAreaView>
+    </View>
   )
 }
 

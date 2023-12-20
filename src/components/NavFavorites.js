@@ -8,17 +8,18 @@ const data = [
     id: "1",
     icon: "home",
     location: "Home",
-    destination: "Yomiuriland-mae Station"
+    destination: "Carrefour laval"
   },
   {
     id: "2",
     icon: "briefcase",
     location: "Work",
-    destination: "Shibuya Scramble Square"
+    destination: "Carrefour laval"
   },
 ]
 
 const NavFavorites = () => {
+  
   return (
     <FlatList
       ItemSeparatorComponent={() => (

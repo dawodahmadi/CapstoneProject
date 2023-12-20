@@ -41,17 +41,23 @@ const RideOptionsCard = () => {
   const [selected, setSelected] = useState(null);
   
   const travelTimeInformation = useSelector(selectTravelTimeInformation)
+  console.log("travelTimeInformation", travelTimeInformation);
   
     return (
     <SafeAreaView style={tw`bg-white flex-grow`}>
-        <View style={{ zIndex: 50}}>
+        <View style={{  flexDirection: 'row', alignItems: "center"}}>
             <TouchableOpacity 
-            onPress={() => navigation.navigate('NavigateCard')} 
-            style={tw`absolute top-3 left-5 p-3 rounded-full`}>
+            onPress={() => navigation.goBack()}
+            //onPress={() => navigation.navigate('NavigateCard')} 
+            style={{left: 5}}
+            // style={tw`absolute top-3 left-5 p-3 rounded-full bg-red-500`}
+            >
                 <Icon name="chevron-left" type="fontawesome" />
             </TouchableOpacity>
-        <Text style={tw`text-center py-5 text-xl`}>Select a Ride - {travelTimeInformation?.distance.text}</Text>
+        <Text style={tw`text-center py-5 text-xl left-20`}>Select a Ride - {travelTimeInformation?.distance?.text}</Text>
         </View>
+        
+
         <FlatList 
         data={data} 
         keyExtractor={(item) => item.id} 
@@ -67,14 +73,14 @@ const RideOptionsCard = () => {
                     source={{ uri: image }} />
                 <View style={tw`-ml-6`}>
                     <Text style={tw`text-xl font-semibold`}>{title}</Text>
-                    <Text>{ travelTimeInformation?.duration.text}</Text>
+                    <Text>{ travelTimeInformation?.duration?.text}</Text>
                 </View>
                 <Text style={tw`text-xl`}>
                     { new Intl.NumberFormat('en-gb', {
                     style: "currency",
                     currency: "GBP"
               }).format(
-                (travelTimeInformation?.duration.value * SURGE_CHARGE_RATE * multiplier) / 100
+                (travelTimeInformation?.duration?.value * SURGE_CHARGE_RATE * multiplier) / 100
               ) }
               </Text>
             </TouchableOpacity>
