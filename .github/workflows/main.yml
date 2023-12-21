@@ -1,0 +1,32 @@
+name: iOS CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  build-and-test:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+
+    - name: Install CocoaPods
+      run: sudo gem install cocoapods
+
+    - name: Install Node.js dependencies with Yarn
+      run: yarn install
+
+    - name: Install iOS dependencies
+      run: |
+        cd ios
+        pod install
+
+    - name: Build and Test
+      run: |
+        cd ios
+        xcodebuild -workspace capstoneproject.xcworkspace -scheme capstoneproject -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 13 Pro Max,OS=latest' build test
