@@ -156,7 +156,7 @@ const PaymentScreen = ({route,navigation}) => {
         }
 
         try {
-             const res = await creatPaymentIntent(apiData)
+            const res = await creatPaymentIntent(apiData)
             console.log("payment intent create succesfully...!!!", res)
 
             if (res?.data?.paymentIntent) {

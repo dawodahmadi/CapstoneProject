@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, TouchableOpacity,Text} from 'react-native';
+import {StyleSheet, TouchableOpacity} from 'react-native';
 
 import {useNavigation} from '@react-navigation/native';
 import DrawerIcon from "../Utils/Assets/Icons/DrawerIcon";

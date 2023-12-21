@@ -18,7 +18,6 @@ import {RFValue} from 'react-native-responsive-fontsize';
 import {GoogleSignin, statusCodes} from "@react-native-google-signin/google-signin";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {useNavigation} from "@react-navigation/native";
-import Header from "../components/Header";
 
 const {height} = Dimensions.get('window');
 
@@ -35,11 +34,12 @@ const LoginScreen = () => {
       try {
         const jsonValue = await AsyncStorage.getItem('loginData');
         const data=JSON.parse(jsonValue)
+        console.log(data,'data in async storage');
         if(data?.email){
           navigation.navigate('NavigationDrawer')
         }
       } catch (e) {
-        // error reading value
+
       }
     };
     getData()
@@ -47,32 +47,29 @@ const LoginScreen = () => {
   const onPressGoogleSignIn=async ()=>{
     try {
       await GoogleSignin.hasPlayServices();
-      debugger
       const userInfo = await GoogleSignin.signIn();
       console.log('userInfo',userInfo)
       const jsonValue = JSON.stringify(userInfo?.user);
       await AsyncStorage.setItem('loginData', jsonValue);
-      navigation.navigate('UserDetailScreen')
-      // setState({ userInfo });
+      navigation.navigate('NavigationDrawer')
+      setState({ userInfo });
     } catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
-        console.log(error.code)
       } else if (error.code === statusCodes.IN_PROGRESS) {
         // operation (e.g. sign in) is in progress already
-        console.log(error.code)
       } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
         // play services not available or outdated
-        console.log(error.code)
       } else {
         // some other error happened
-        console.log(error)
-        debugger
       }
     }
   }
   const onPressEmail=()=>{
     navigation.navigate('GmailSignInScreen')
+  }
+  const onSignUp=()=>{
+    navigation.navigate('UserDetailScreen')
   }
   return (
       <View style={styles.signInContainer}>
@@ -84,29 +81,39 @@ const LoginScreen = () => {
             backGroundColor={Colors?.primary}
         /> */}
         <View style={{alignItems:'center',marginTop:'10%'}}>
-          <Text style={styles.createAccount}>{'pageSignIn.title'}</Text>
-          <Text  style={styles.signIn}>{'pageSignIn.title2'}</Text>
+          <Text style={styles.createAccount}>Montride Taxi</Text>
         </View>
-       <View style={styles.signInInnerContainer}>
-         <Button
-             style={styles.buttonEmail}
-             styleText={styles.buttonTextWhite}
-             buttonText={'Sign in with Email'}
-             buttonIconValue={true}
-             buttonIcon={
-               <EMailIcon width={40} height={40} color={Colors?.white} />
-             }
-             onPressHandler={onPressEmail}
-         />
-         <Button
-             style={styles.buttonGoogle}
-             styleText={styles.buttonText}
-             buttonText={'Sign In With Google'}
-             buttonIconValue={true}
-             buttonIcon={<GoogleIcon width={40} height={40} />}
-             onPressHandler={onPressGoogleSignIn}
-         />
-       </View>
+        <View style={styles.signInInnerContainer}>
+          <Button
+              style={styles.buttonEmail}
+              styleText={styles.buttonTextWhite}
+              buttonText={'Sign in with Email'}
+              buttonIconValue={true}
+              buttonIcon={
+                <EMailIcon width={40} height={40} color={Colors?.white} />
+              }
+              onPressHandler={onPressEmail}
+          />
+          <Button
+              style={styles.buttonGoogle}
+              styleText={styles.buttonText}
+              buttonText={'Sign In With Google'}
+              buttonIconValue={true}
+              buttonIcon={<GoogleIcon width={40} height={40} />}
+              onPressHandler={onPressGoogleSignIn}
+          />
+
+          <Button
+              style={styles.buttonEmail}
+              styleText={styles.buttonTextWhite}
+              buttonText={'Sign Up'}
+              buttonIconValue={true}
+              buttonIcon={
+                <EMailIcon width={40} height={40} color={Colors?.white} />
+              }
+              onPressHandler={onSignUp}
+          />
+        </View>
       </View>
   );
 };

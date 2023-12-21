@@ -20,6 +20,7 @@ import Toast from "react-native-toast-message";
 import {Colors} from "../Utils/Assets/Colors";
 import Header from "../components/Header";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import {loginApi} from "../Utils/Apis/Services";
 
 
 
@@ -116,26 +117,6 @@ const GmailSignInScreen = ({ navigation }) => {
                 }))
             });
     }
-    const handleConfirmPasswordChange = (text) => {
-        setSignUpParams(previous => ({
-            ...previous,
-            confirmPassword: text
-        }))
-        let confirmPassword = ''
-        confirmPassword = text
-        if (signUpParams?.password !== confirmPassword) {
-            setOutLineColor(previous => ({
-                ...previous,
-                confirmPasswordColor: 'red'
-            }))
-        }
-        else {
-            setOutLineColor(previous => ({
-                ...previous,
-                confirmPasswordColor: '#007CCF'
-            }))
-        }
-    }
     const signUpUser = async () => {
         Keyboard.dismiss();
         if (signUpParamsValidate?.email && signUpParamsValidate?.password) {
@@ -145,10 +126,10 @@ const GmailSignInScreen = ({ navigation }) => {
                     password: signUpParams?.password,
                 }
                 try {
-                    // const data = await signUpApi(body, navigation)
-                    const jsonValue = JSON.stringify(body);
-                    await AsyncStorage.setItem('loginData', jsonValue);
-                    navigation.navigate('UserDetailScreen')
+                    const data = await loginApi(body, navigation)
+                    // const jsonValue = JSON.stringify(data?.data);
+                    // await AsyncStorage.setItem('loginData', jsonValue);
+                    // navigation.navigate('HomeScreen')
                 }
                 catch (error) {
 
@@ -182,9 +163,9 @@ const GmailSignInScreen = ({ navigation }) => {
             })
         }
     };
-const goBackHandler=()=>{
-    navigation?.goBack()
-}
+    const goBackHandler=()=>{
+        navigation?.goBack()
+    }
     return (
         <View style={styles.container}>
             <Header
@@ -198,7 +179,7 @@ const goBackHandler=()=>{
             <View>
                 <Text style={styles.title}>SIGN IN TO RIDESHARE</Text>
                 <KeyboardAvoidingView enabled style={styles.keyboardAvoidingView}>
-                    <ScrollView style={{ height: '60%' }} showsVerticalScrollIndicator={false}>
+                    <ScrollView style={{ height: '50%' }} showsVerticalScrollIndicator={false}>
                         <View style={styles.inputSec}>
                             <Formik
                                 validationSchema={emailValidationSchema}
@@ -274,49 +255,6 @@ const goBackHandler=()=>{
                                             <Text
                                                 style={{ fontSize: RFValue(10), color: 'red' }}>
                                                 {errors.password}
-                                            </Text>
-                                        )}
-                                    </>
-                                )}
-                            </Formik>
-                        </View>
-                        <View style={styles.inputSec}>
-                            <Formik
-                                validationSchema={passwordValidationSchema}
-                                initialValues={{ confirmPassword: signUpParams?.confirmPassword }}
-                                onSubmit={values => onPressName(values)}
-                            >
-                                {({ handleChange, handleSubmit, values, errors }) => (
-                                    <>
-                                        <TextInput
-                                            label="Confirm Password*"
-                                            mode="outlined"
-                                            autoCapitalize="none"
-                                            placeholder="Confirm Password*"
-                                            textColor="#000000"
-                                            secureTextEntry={true}
-                                            value={values.confirmPassword}
-                                            onFocus={() => handleConfirmPasswordChange()}
-                                            onChangeText={text => {
-                                                handleChange('confirmPassword')(text)
-                                                handleConfirmPasswordChange(text)
-
-                                            }}
-                                            dense
-                                            theme={{
-                                                colors: {
-                                                    primary: outLineColor?.confirmPasswordColor,
-                                                    text: 'black',
-                                                },
-                                            }}
-                                            style={{
-                                                backgroundColor: 'white'
-                                            }}
-                                        />
-                                        {errors.confirmPassword && (
-                                            <Text
-                                                style={{ fontSize: RFValue(10), color: 'red' }}>
-                                                {errors.confirmPassword}
                                             </Text>
                                         )}
                                     </>
