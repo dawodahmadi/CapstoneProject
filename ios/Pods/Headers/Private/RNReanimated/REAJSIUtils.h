@@ -1,1 +1,1 @@
-../../../../../node_modules/react-native-reanimated/ios/native/REAJSIUtils.h
+../../../../../node_modules/react-native-reanimated/apple/native/REAJSIUtils.h

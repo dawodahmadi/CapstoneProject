@@ -1,1 +1,1 @@
-../../../../../node_modules/react-native-reanimated/ios/LayoutReanimation/REAFrame.h
+../../../../../node_modules/react-native-reanimated/apple/LayoutReanimation/REAFrame.h

@@ -1,1 +1,1 @@
-../../../../../node_modules/react-native-reanimated/ios/LayoutReanimation/REASharedElement.h
+../../../../../node_modules/react-native-reanimated/apple/LayoutReanimation/REASharedElement.h

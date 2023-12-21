@@ -1,1 +1,1 @@
-../../../../../node_modules/react-native-reanimated/ios/LayoutReanimation/REAScreensHelper.h
+../../../../../node_modules/react-native-reanimated/apple/LayoutReanimation/REAScreensHelper.h

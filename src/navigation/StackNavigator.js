@@ -1,33 +1,32 @@
 import React from 'react';
-import {View} from 'react-native'
-import {NavigationContainer} from "@react-navigation/native";
-
-import {SafeAreaProvider} from "react-native-safe-area-context";
-import LoginScreen from "../screens/LoginScreen";
-import HomeScreen from "../screens/HomeScreen";
-import MapScreen from "../screens/MapScreen";
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import LoginScreen from '../screens/LoginScreen';
+import HomeScreen from '../screens/HomeScreen';
+import MapScreen from '../screens/MapScreen';
+import GmailSignInScreen from '../screens/GmailSignInScreen';
+import UserDetailScreen from '../screens/UserDetailScreen';
+import PaymentScreen from '../screens/PaymentScreen';
+import DrawerContent from './DrawerContent';
 import {createStackNavigator} from "@react-navigation/stack";
-import GmailSignInScreen from "../screens/GmailSignInScreen";
-import UserDetailScreen from "../screens/UserDetailScreen";
-import PaymentScreen from "../screens/PaymentScreen";
+import NavigationDrawer from "./DrawerNavigation";
 
-const Stack = createStackNavigator();
+const stack = createStackNavigator();
 
-const StackNavigator=()=>{
-    return(
-        <NavigationContainer>
-            <SafeAreaProvider>
-                <Stack.Navigator>
-                    <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false}} />
-                    <Stack.Screen name="GmailSignInScreen" component={GmailSignInScreen} options={{ headerShown: false}} />
-                    <Stack.Screen name="UserDetailScreen" component={UserDetailScreen} options={{ headerShown: false}} />
-                    <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false}} />
-                    <Stack.Screen name="MapScreen" component={MapScreen} options={{ headerShown: false}} />
-                    <Stack.Screen name="PaymentScreen" component={PaymentScreen} options={{ headerShown: false}} />
-                </Stack.Navigator>
-            </SafeAreaProvider>
-        </NavigationContainer>
-    )
-}
+const StackNavigator = () => {
+  return (
+    <NavigationContainer>
+      <SafeAreaProvider>
+        <stack.Navigator >
+          <stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
+          <stack.Screen name="GmailSignInScreen" component={GmailSignInScreen} options={{ headerShown: false }} />
+          <stack.Screen name="UserDetailScreen" component={UserDetailScreen} options={{ headerShown: false }} />
+          <stack.Screen name="NavigationDrawer" component={NavigationDrawer} options={{ headerShown: false }} />
+        </stack.Navigator>
+      </SafeAreaProvider>
+    </NavigationContainer>
+  );
+};
 
-export default StackNavigator
+export default StackNavigator;
