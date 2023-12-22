@@ -1,34 +1,17 @@
-name: iOS CI
-
+name: CICD Demo
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
-
+    branches:
+      - main
 jobs:
-  build:
+  build-and-test:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
-
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'
-
-    - name: Install CocoaPods
-      run: sudo gem install cocoapods
-
-    - name: Install Node.js dependencies with Yarn
-      run: yarn install
-
-    - name: Install iOS dependencies
-      run: |
-        cd ios
-        pod install
-
-    - name: Build iOS Project
-      run: |
-        cd ios
-        xcodebuild -workspace capstoneproject.xcworkspace -scheme capstoneproject -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 13 Pro Max,OS=latest' build
+      - uses: actions/checkout@v2
+      - name: Select Xcode
+        run: sudo Xcode-select -switch /Applications/Xcode_13.2.1.app
+      - name: Build & Test
+        run: xcodebuild clean build test -workspace capstoneproject.xcworkspace -scheme capstoneproject -destination 'platform=iOS Simulator,name=iPhone 12 Pro,OS=15.2'
