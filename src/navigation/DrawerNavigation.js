@@ -22,6 +22,7 @@ const NavigationDrawer = () => {
                 screenOptions={{
                     drawerType: 'front',
                     drawerStatusBarAnimation: 'slide',
+                    gestureEnabled: false,
                     headerLeft: () => <HeaderBackButton />,
                 }}
                 
@@ -33,7 +34,7 @@ const NavigationDrawer = () => {
                 <Drawer.Screen name="ChatScreen" component={ChatScreen} options={{ headerShown: true }} />
                 <Drawer.Screen name="PaymentScreen" component={PaymentScreen} options={{ headerShown: true }} />
                 <Drawer.Screen name="MapScreen" component={MapScreen} options={{ headerShown: true }} />
-                <Drawer.Screen name="UserDetailScreen" component={UserDetailScreen} options={{ headerShown: true }} />
+                {/* <Drawer.Screen name="UserDetailScreen" component={UserDetailScreen} options={{ headerShown: true }} /> */}
                 {/* <Drawer.Screen name="ForgotPasswordScreen" component={ForgotPasswordScreen} options={{ headerShown: true }} /> */}
                 {/* <Drawer.Screen name="ExitScreen" component={ExitScreen} options={{ headerShown: true }} /> */}
             </Drawer.Navigator>

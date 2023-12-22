@@ -18,7 +18,7 @@ const StackNavigator = () => {
   return (
     <NavigationContainer>
       <SafeAreaProvider>
-        <stack.Navigator >
+        <stack.Navigator screenOptions={{gestureEnabled: false}}>
           <stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
           <stack.Screen name="GmailSignInScreen" component={GmailSignInScreen} options={{ headerShown: false }} />
           <stack.Screen name="UserDetailScreen" component={UserDetailScreen} options={{ headerShown: false }} />
