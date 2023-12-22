@@ -1,34 +1,33 @@
-name: iOS CI
+name: React Native iOS Build and Run
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-  build:
+  build-and-run-ios:
     runs-on: macos-latest
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
 
-    - name: Install CocoaPods
-      run: sudo gem install cocoapods
+      - name: Install JavaScript Dependencies
+        run: yarn install
 
-    - name: Install Node.js dependencies with Yarn
-      run: yarn install
+      - name: Install iOS Dependencies
+        run: |
+          cd ios
+          pod install
 
-    - name: Install iOS dependencies
-      run: |
-        cd ios
-        pod install
+      - name: Run Expo (iOS)
+        run: npx expo run:ios
 
-    - name: Build iOS Project
-      run: |
-        cd ios
-        xcodebuild -workspace capstoneproject.xcworkspace -scheme capstoneproject -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 13 Pro Max,OS=latest' build
+      # Add any other steps for testing, linting, etc.
