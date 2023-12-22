@@ -40,6 +40,7 @@ end
 target 'capstoneproject' do
   use_expo_modules!
   config = use_native_modules!
+
   pod 'Firebase', :modular_headers => true
   pod 'FirebaseCore', :modular_headers => true
   pod 'GoogleUtilities', :modular_headers => true

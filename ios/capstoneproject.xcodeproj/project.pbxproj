@@ -12,12 +12,16 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
 		96905EF65AED1B983A6B3ABC /* libPods-capstoneproject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-capstoneproject.a */; };
-		AC8CDE57A26648558505F0FD /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67D8C8B2BCE43FD8C66DC11 /* noop-file.swift */; };
 		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
+<<<<<<< HEAD
 		E0012D1C2B2B840100AF5094 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0012D1B2B2B840100AF5094 /* GoogleService-Info.plist */; };
 		E0D9A5FC2B34C1600066FC7A /* capstoneprojectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D9A5FB2B34C1600066FC7A /* capstoneprojectTests.swift */; };
 		E0D9A6022B34C24C0066FC7A /* MyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D9A5F32B34BB160066FC7A /* MyAppUITests.swift */; };
+=======
+		BB376961CCB843CB908977E6 /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73202FAF86204E5290C72E11 /* noop-file.swift */; };
+		E0D9A6042B34E2720066FC7A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E0D9A6032B34E2720066FC7A /* GoogleService-Info.plist */; };
+>>>>>>> feature/integrate_backend
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,16 +43,21 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = capstoneproject/main.m; sourceTree = "<group>"; };
 		58EEBF8E8E6FB1BC6CAF49B5 /* libPods-capstoneproject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-capstoneproject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C2E3173556A471DD304B334 /* Pods-capstoneproject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-capstoneproject.debug.xcconfig"; path = "Target Support Files/Pods-capstoneproject/Pods-capstoneproject.debug.xcconfig"; sourceTree = "<group>"; };
+		73202FAF86204E5290C72E11 /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "capstoneproject/noop-file.swift"; sourceTree = "<group>"; };
 		7A4D352CD337FB3A3BF06240 /* Pods-capstoneproject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-capstoneproject.release.xcconfig"; path = "Target Support Files/Pods-capstoneproject/Pods-capstoneproject.release.xcconfig"; sourceTree = "<group>"; };
+		A6150FC23A054C6886D44881 /* capstoneproject-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "capstoneproject-Bridging-Header.h"; path = "capstoneproject/capstoneproject-Bridging-Header.h"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = capstoneproject/SplashScreen.storyboard; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		C67D8C8B2BCE43FD8C66DC11 /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "capstoneproject/noop-file.swift"; sourceTree = "<group>"; };
 		E0012D1B2B2B840100AF5094 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E0D9A5F32B34BB160066FC7A /* MyAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAppUITests.swift; sourceTree = "<group>"; };
 		E0D9A5F92B34C1600066FC7A /* capstoneprojectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = capstoneprojectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0D9A5FB2B34C1600066FC7A /* capstoneprojectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = capstoneprojectTests.swift; sourceTree = "<group>"; };
+=======
+		E0D9A6032B34E2720066FC7A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+>>>>>>> feature/integrate_backend
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		F3B493E2435B497CA9EFED8E /* capstoneproject-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "capstoneproject-Bridging-Header.h"; path = "capstoneproject/capstoneproject-Bridging-Header.h"; sourceTree = "<group>"; };
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-capstoneproject/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,7 +83,7 @@
 		13B07FAE1A68108700A75B9A /* capstoneproject */ = {
 			isa = PBXGroup;
 			children = (
-				E0012D1B2B2B840100AF5094 /* GoogleService-Info.plist */,
+				E0D9A6032B34E2720066FC7A /* GoogleService-Info.plist */,
 				BB2F792B24A3F905000567C9 /* Supporting */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
@@ -82,8 +91,8 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				C67D8C8B2BCE43FD8C66DC11 /* noop-file.swift */,
-				F3B493E2435B497CA9EFED8E /* capstoneproject-Bridging-Header.h */,
+				73202FAF86204E5290C72E11 /* noop-file.swift */,
+				A6150FC23A054C6886D44881 /* capstoneproject-Bridging-Header.h */,
 			);
 			name = capstoneproject;
 			sourceTree = "<group>";
@@ -181,13 +190,13 @@
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
-				C1E9A0C4B2812D224A0E478F /* [Expo] Configure project */,
+				3A05587944BFDEAD11FC047A /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				2543C60BD2D09B8878F8F1D9 /* [CP-User] [RNFB] Core Configuration */,
+				3C2410CE12D687C7D99EAB06 /* [CP-User] [RNFB] Core Configuration */,
 			);
 			buildRules = (
 			);
@@ -259,7 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
-				E0012D1C2B2B840100AF5094 /* GoogleService-Info.plist in Resources */,
+				E0D9A6042B34E2720066FC7A /* GoogleService-Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
 			);
@@ -311,7 +320,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2543C60BD2D09B8878F8F1D9 /* [CP-User] [RNFB] Core Configuration */ = {
+		3A05587944BFDEAD11FC047A /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-capstoneproject/expo-configure-project.sh\"\n";
+		};
+		3C2410CE12D687C7D99EAB06 /* [CP-User] [RNFB] Core Configuration */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -400,25 +428,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-capstoneproject/Pods-capstoneproject-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C1E9A0C4B2812D224A0E478F /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-capstoneproject/expo-configure-project.sh\"\n";
-		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -448,7 +457,7 @@
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */,
-				AC8CDE57A26648558505F0FD /* noop-file.swift in Sources */,
+				BB376961CCB843CB908977E6 /* noop-file.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
