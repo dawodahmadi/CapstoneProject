@@ -22,12 +22,12 @@ jobs:
       - name: Install JavaScript Dependencies
         run: yarn install
 
-      - name: Install iOS Dependencies
+      - name: Install CocoaPods dependencies
         run: |
           cd ios
           pod install
 
       - name: Run Expo (iOS)
-        run: npx expo run:ios
+        run: npx expo run:ios --non-interactive
 
-      # Add any other steps for testing, linting, etc.
+     
