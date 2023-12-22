@@ -1,4 +1,5 @@
-name: CICD Demo
+name: React Native iOS Build and Run
+
 on:
   push:
     branches:
@@ -6,12 +7,27 @@ on:
   pull_request:
     branches:
       - main
+
 jobs:
-  build-and-test:
+  build-and-run-ios:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Select Xcode
-        run: sudo Xcode-select -switch /Applications/Xcode_13.2.1.app
-      - name: Build & Test
-        run: xcodebuild clean build test -workspace capstoneproject.xcworkspace -scheme capstoneproject -destination 'platform=iOS Simulator,name=iPhone 12 Pro,OS=15.2'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '20'
+
+      - name: Install JavaScript Dependencies
+        run: yarn install
+
+      - name: Install iOS Dependencies
+        run: |
+          cd ios
+          pod install
+
+      - name: Run Expo (iOS)
+        run: npx expo run:ios
+
+      # Add any other steps for testing, linting, etc.
