@@ -1,7 +1,7 @@
 import 'dotenv/config';
 
 
-export default{
+export default {
   "expo": {
     "name": "capstoneproject",
     "slug": "capstoneproject",
@@ -19,6 +19,7 @@ export default{
     ],
     "ios": {
       "supportsTablet": true,
+      "googleServicesFile": "./GoogleService-Info.plist",
       "bundleIdentifier": "com.dawodahmadi.capstoneproject",
     },
     "android": {
@@ -42,6 +43,19 @@ export default{
       measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
       googleMapsApiKey: process.env.GOOGLE_MAPS_APIKEY // Add this line
     },
-    "plugins": ["@react-native-google-signin/google-signin"]
+    "plugins": [
+      "@react-native-firebase/app",
+      "@react-native-firebase/auth",
+      "@react-native-firebase/crashlytics",
+      "@react-native-google-signin/google-signin",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ]
+    ]
   }
 }

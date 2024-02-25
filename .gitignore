@@ -77,3 +77,6 @@ yarn-error.*
 
 ## ignore xcode related
 **/xcuserdata/
+
+# we are using expo to generate them
+/ios
